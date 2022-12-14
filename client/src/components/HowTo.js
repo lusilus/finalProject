@@ -1,12 +1,12 @@
 import {TbMinusVertical} from 'react-icons/tb'
 import {BsCheckCircle} from 'react-icons/bs'
-import sculpure from '../assets/sculpure.png'
+import sculpture from '../assets/sculpture.jpg'
 
 export default function HowTo() {
   return (
     <div className='flex flex-row'>
          <div className='w-[40%] m-5'>
-             <img src={sculpure} alt="" className='object-cover object-left
+             <img src={sculpture} alt="" className='object-cover object-left
  rounded-t-full h-[700px]' /> 
          </div>
        <div className='flex items-center flex-col w-[600px] '>

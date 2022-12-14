@@ -1,6 +1,6 @@
 import { useContext, useState} from 'react'
 import axios from 'axios'
-import colors from "../assets/colors.png"
+import colors from "../assets/colors.jpg"
 import { AppContext } from "../components/Context"
 import { useNavigate } from 'react-router-dom'
 

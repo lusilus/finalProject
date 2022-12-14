@@ -1,5 +1,5 @@
 import{TiThumbsUp} from 'react-icons/ti'
-import treads from '../assets/treads.png'
+import threads from '../assets/threads.jpg'
 import {IoMdPricetags} from 'react-icons/io'
 import {HiOutlineLightBulb} from 'react-icons/hi'
 import {VscKey} from 'react-icons/vsc'
@@ -13,7 +13,7 @@ export default function Explain() {
   return (
     <div className='bg-black text-white h-[100hv] w-full font-urbanist p-3'>
       <img 
-        src={treads} 
+        src={threads} 
         alt='threads'
         className=' object-cover object-top h-48 w-full'/>
       <div className='   flex items-center flex-col '>

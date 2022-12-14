@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useContext,  useState } from 'react'
 import { AppContext } from '../components/Context'
 import { useNavigate } from 'react-router-dom'
-import wallPainting from '../assets/wallPainting.png'
+import cooking from '../assets/cooking.jpg'
 import {AiOutlineCloudUpload} from 'react-icons/ai'
 import Cost from '../components/Cost'
 export default function AddNew() {
@@ -74,7 +74,7 @@ export default function AddNew() {
         <div className='bg-black text-white h-[100hv] w-full flex flex-row-reverse '>
               <img 
              className='w-[500px] h-[50%] mt-[10%] mr-10 rounded-t-full object-contain '
-             src={wallPainting} alt="wall Painting"/> 
+             src={cooking} alt="wall Painting"/> 
             <div className='flex flex-col'>
             <h1 className='font-play text-[80px] ml-5'>Add your new Artwork</h1>
             <h3 className="font-urbanist ml-5 text-[36px]">Please fill in the information</h3>

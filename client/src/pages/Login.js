@@ -2,7 +2,7 @@ import { useContext, useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../components/Context'
-import clayMan from '../assets/clayMan.png'
+import clayMan from '../assets/clayMan.jpg'
 
 
 export default function Login() {

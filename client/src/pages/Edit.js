@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useContext,  useState } from 'react'
 import { AppContext } from '../components/Context'
 import { useNavigate, useParams } from 'react-router-dom'
-import clay from '../assets/clay.png'
+import clay from '../assets/clay.jpg'
 import {AiOutlineCloudUpload} from 'react-icons/ai'
 import Cost from '../components/Cost'
 export default function Edit() {

@@ -1,7 +1,7 @@
 import { useState, useContext} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import wallPainting from "../assets/wallPainting.png"
+import wallPainting from "../assets/wallPainting.jpg"
 import { AppContext } from "../components/Context"
 
 export default function Register() {

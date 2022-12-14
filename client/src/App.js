@@ -1,6 +1,6 @@
 import './App.css';
 import {Link} from 'react-router-dom'
-import homePage from './assets/homePage.png'
+import homePage from './assets/homePage.jpg'
 
 
 export default function HomePage() {
