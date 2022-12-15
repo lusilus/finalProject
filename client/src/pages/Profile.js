@@ -137,14 +137,29 @@ export default function Profile() {
               <option value=''>
                Select Art Field
               </option>
-              <option value='Fine Art'>
-               Fine Art
+              <option value='Literature'>
+              Literature
               </option>
-              <option value='Prints'>
-               Prints
+              <option value='Painting'>
+              Painting
               </option>
               <option value='Digital Art'>
                Digital Art
+              </option>
+              <option value='Drawing'>
+              Drawing
+              </option>
+              <option value='Sculpture and Modeling'>
+              Sculpture and Modeling
+              </option>
+              <option value='Furniture Design'>
+              Furniture Design
+              </option>
+              <option value='Photography'>
+              Photography
+              </option>
+              <option value='Other'>
+               Other
               </option>
             </select>
             <label className='font-urbanist'>My goals are:</label>
