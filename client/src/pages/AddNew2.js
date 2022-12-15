@@ -57,8 +57,11 @@ export default function AddNew() {
             Headers: {"content-type": "multipart/form-data"}
         }
         
-        const response = await axios.post(process.env.REACT_APP_BACKEND +'/artCard/add', 
+        // const response = await axios.post(process.env.REACT_APP_BACKEND +'/artCard/add', 
+        // formdata, config)
+        const response = await axios.post('/artCard/add', 
         formdata, config)
+                
                 
         
              

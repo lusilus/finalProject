@@ -56,8 +56,11 @@ export default function Edit() {
             Headers: {"content-type": "multipart/form-data"}
         }
         
-         const response = await axios.patch(process.env.REACT_APP_BACKEND +'/artCard/edit', 
+        //  const response = await axios.patch(process.env.REACT_APP_BACKEND +'/artCard/edit', 
+        //  formdata, config)
+        const response = await axios.patch('/artCard/edit', 
          formdata, config)
+        
         
          if (response.data.success) {
 

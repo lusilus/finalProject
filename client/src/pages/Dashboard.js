@@ -17,8 +17,11 @@ useEffect(()=>{
 },[])
 
     const getData = async () => {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND}/artCard/list?skip=${state.artCards.length}&id=${state.user._id}`,  { withCredentials: true })
+        // const response = await axios.get(`${process.env.REACT_APP_BACKEND}/artCard/list?skip=${state.artCards.length}&id=${state.user._id}`,  { withCredentials: true })
+		// console.log(" getData -> response", response)
+        const response = await axios.get(`/artCard/list?skip=${state.artCards.length}&id=${state.user._id}`,  { withCredentials: true })
 		console.log(" getData -> response", response)
+
 
 
         dispatch({

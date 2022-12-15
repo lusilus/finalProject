@@ -51,7 +51,9 @@ export default function Profile() {
         const config= {
           Headers: {'content-type': 'multipart/form-data'}
         }
-        const response = await axios.patch(process.env.REACT_APP_BACKEND +'/user/profile', formdata, config )
+        // const response = await axios.patch(process.env.REACT_APP_BACKEND +'/user/profile', formdata, config )
+				// console.log("TCL: handleSave -> response", response)
+        const response = await axios.patch('/user/profile', formdata, config )
 				console.log("TCL: handleSave -> response", response)
 
         //updating the global state

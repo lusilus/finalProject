@@ -18,7 +18,8 @@ export default function Card(props) {
   
   const handleDelete = async (id) => {
     //sending to the server the artCard ID
-     const response = await axios.delete(process.env.REACT_APP_BACKEND +`/artCard/delete?artCard=${props.artCard._id}`)
+     //const response = await axios.delete(process.env.REACT_APP_BACKEND +`/artCard/delete?artCard=${props.artCard._id}`)
+     const response = await axios.delete(`/artCard/delete?artCard=${props.artCard._id}`)
 
      if (response.data.success){
      

@@ -19,7 +19,8 @@ export default function Register() {
      const handleRegister = async (e) => {
         e.preventDefault()
          console.log('hello from register')
-         const response = await axios.post(process.env.REACT_APP_BACKEND +'/user/register', data)
+        //  const response = await axios.post(process.env.REACT_APP_BACKEND +'/user/register', data)
+        const response = await axios.post('/user/register', data)
     
         console.log('register response is ', response)
         //updating the global state

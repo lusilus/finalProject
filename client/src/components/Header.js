@@ -17,8 +17,11 @@ function Header() {
   
   const handleLogout = async () => {
 
-    const response = await axios.get(process.env.REACT_APP_BACKEND + '/user/logout',  { withCredentials: true })
+    // const response = await axios.get(process.env.REACT_APP_BACKEND + '/user/logout',  { withCredentials: true })
+		// console.log("handleLogout -> response", response)
+    const response = await axios.get( '/user/logout',  { withCredentials: true })
 		console.log("handleLogout -> response", response)
+
 
     if (response.data.success) {
 

@@ -27,7 +27,8 @@ const handleLogin = async (e) => {
     return
   }
    
-   const response = await axios.post(process.env.REACT_APP_BACKEND + '/user/login', data, { withCredentials: true })
+  //  const response = await axios.post(process.env.REACT_APP_BACKEND + '/user/login', data, { withCredentials: true })
+  const response = await axios.post( '/user/login', data, { withCredentials: true })
    
 
   console.log('login response is ', response)
