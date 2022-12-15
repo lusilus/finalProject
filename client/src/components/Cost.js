@@ -80,7 +80,7 @@ export default function Cost({ data, setData}) {
       let portion =`${(parseInt(material.portionA) || 0) + (parseInt(material.portionB) || 0) + (parseInt(material.portionC) || 0) + (parseInt(material.portionD) || 0)} `
 			//console.log("TCL: Cost -> portion", portion)
       //need to right the right formula and update the value
-      let materialCost =`${((parseInt(material.totalMaterialA) || 0) + (parseInt(material.totalMaterialB) || 0) + (parseInt(material.totalMaterialC) || 0) + (parseInt(material.totalMaterialD) || 0)) + (parseInt(packagingMaterialCost) || 0)} `
+      let materialCost =`${(parseInt(materialCostA) || 0) + (parseInt(materialCostB) || 0) + (parseInt(materialCostC) || 0) + (parseInt(materialCostD) || 0) + (parseInt(packagingMaterialCost) || 0)} `
       //console.log("TCL: Cost -> materialCost", materialCost)
 
       let cost =`${ (parseInt(materialCost) || 0 ) + (parseInt(laborCost) || 0 ) +(parseInt(overheadArtWork) || 0 ) }`
