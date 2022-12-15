@@ -74,7 +74,7 @@ export default function Cost({ data, setData}) {
       let packagingMaterialCost = `${(material.packagingTotalMaterial * material.packagingPortion )}`
       //console.log("TCL: Cost -> packagingMaterialCost", packagingMaterialCost)
       
-      let totalMaterialCost =`${(parseInt(material.totalMaterialA) || 0) + (parseInt(material.totalMaterialB) || 0) + (parseInt(material.totalMaterialC) || 0) + (parseInt(material.totalMaterialD) || 0)} `
+      let totalMaterialCost =`${(parseInt(materialCostA) || 0) + (parseInt(materialCostB) || 0) + (parseInt(materialCostC) || 0) + (parseInt(materialCostD) || 0)} `
 			//console.log("TCL: Cost -> totalMaterialCost", totalMaterialCost)
       
       let portion =`${(parseInt(material.portionA) || 0) + (parseInt(material.portionB) || 0) + (parseInt(material.portionC) || 0) + (parseInt(material.portionD) || 0)} `
