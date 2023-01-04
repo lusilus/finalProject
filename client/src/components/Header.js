@@ -40,7 +40,10 @@ function Header() {
          <Link to='/add'><AiFillFileAdd className='cursor-pointer hover:text-green-200 '/></Link>
         <Link to='/dashboard'><HiHome className='cursor-pointer hover:text-blue-200'/></Link>
         <Link to='/explain'><VscQuestion className='cursor-pointer hover:text-purple-200'/></Link>
+        <Link to='/newCost'>
+          <p className='cursor-pointer hover:text-red-500'>new Cost</p></Link>
         <Link to='/login'><AiOutlineLogout className='cursor-pointer hover:text-yellow-200 mr-3' onClick={handleLogout}/></Link>
+        
 
         {
           state?.user.image?

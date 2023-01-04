@@ -40,7 +40,7 @@ export default function Card(props) {
 
   }
   return (
-    <div className='bg-black text-white font-urbanist '>
+    <div>
         <div className="flex p-3 flex-col gap-[20px] w-[250px] h-[625px] ">
             <img 
                 src={'https://res.cloudinary.com/dp4yo8jcf/image/upload/v1669061302/' + props.artCard.image} 

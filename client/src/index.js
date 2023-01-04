@@ -14,6 +14,7 @@ import AddNew2 from './pages/AddNew2';
 import ContextProvider from './components/Context';
 import Cost from './components/Cost'
 import Edit from './pages/Edit'
+import Main from './components/addArtComponents/Main'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -34,6 +35,7 @@ root.render(
               <Route path='/add' element={<AddNew2 />}/> 
               <Route path='/cost' element={<Cost />}/>
               <Route path='/edit/:id' element={<Edit />}/>
+              <Route path='/newCost' element={<Main />}/>
           </Route>
       </Routes>
     </BrowserRouter>
