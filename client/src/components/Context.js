@@ -4,8 +4,6 @@ export const AppContext = createContext()
 
 export default function ContextProvider({children}){
 
-  
-
     const reducer = (state, action) => {
 
         switch (action.type){

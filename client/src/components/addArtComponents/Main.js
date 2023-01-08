@@ -1,7 +1,15 @@
 import { useContext, useState } from 'react'
 import { AppContext } from '../Context'
 import axios from 'axios'
-import {AiOutlineCloudUpload} from 'react-icons/ai'
+//import {AiOutlineCloudUpload} from 'react-icons/ai'
+import GeneralDataStep from './GeneralDataStep'
+import LaborStep from './LaborStep'
+import OverheadStep from './OverheadStep'
+import { Stepper, StepLabel, Step } from '@mui/material'
+import { stepsContext } from './StepContext'
+import Materials from './Materials'
+import './main.css';
+import Packaging from './Packaging'
 
 export default function Main() {
     const {state, dispatch} = useContext(AppContext)
@@ -18,7 +26,7 @@ export default function Main() {
 
     const [imgUrl, setImgUrl] = useState( null)
     const [file, setFile] = useState(null)
-  
+    const { currentStep, finalData} = useContext(stepsContext)
  
 
     const handleImageChange = (e) =>{
@@ -56,10 +64,48 @@ export default function Main() {
         const response = await axios.post('/artCard/add', 
         formdata, config)
         console.log("add new  image response Main", response)
-    }         
+    }
+    
+    function showStep(step){
+        switch(step){
+            case 1:
+                return <GeneralDataStep/>
+            case 2:
+                return <LaborStep/>
+            case 3:
+                return <OverheadStep/>
+            case 4:
+                return <Materials/>
+            case 5:
+                return <Packaging/>
+            default: console.log('hello from steps')
+        }
+           
+    }
   return (
     <div>
-        <form>
+        <div className='center-stepper'>
+            <Stepper style={{width:'18%'}} activeStep={currentStep - 1} orientation='horizontal'>
+                <Step>
+                    <StepLabel></StepLabel>
+                </Step>
+                <Step>
+                    <StepLabel></StepLabel>
+                </Step>
+                <Step>
+                    <StepLabel></StepLabel>
+                </Step>
+                <Step>
+                    <StepLabel></StepLabel>
+                </Step>
+                <Step>
+                    <StepLabel></StepLabel>
+                </Step>
+            </Stepper>
+        </div>
+        {showStep(currentStep)}
+        
+        {/* <form>
             <div className='hidden'>Title:
                 <p><input 
                         className="placeholder:italic placeholder:text-slate-400 block bg-white border border-slate-300 rounded-md py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm text-black w-[250px]"
@@ -89,27 +135,13 @@ export default function Main() {
                     />              
                 </label>
             </div>
-            <div className='overflow-auto'>
-                <div className='float-right'>
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                </div>
-            </div>
-            {/* Circles which indicates the steps of the form:  */}
-                <div className='text-center mt-[40px];'>
-                <span className='h-[15px] w-[15px] m-1 bg-slate-400 border-none rounded-full inline-block opacity-25'></span>
-                <span className='h-[15px] w-[15px] m-1 bg-slate-400 border-none rounded-full inline-block opacity-25'></span>
-                <span className='h-[15px] w-[15px] m-1 bg-slate-400 border-none rounded-full inline-block opacity-25'></span>
-                <span className='h-[15px] w-[15px] m-1 bg-slate-400 border-none rounded-full inline-block opacity-25'></span>
-                </div>
-
-            <div>
+           <div>
                 <button 
                     className="flex mt-10 inline-block px-6 py-2 border-2 border-gray-200 text-gray-200 font-medium text-xs leading-tight uppercase rounded-full hover:bg-red-100 hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out font-urbanist w-[250px]"
                     onClick={(e) => handleSave(e)}>Save
                 </button>
             </div>
-        </form>
+        </form> */}
 
     </div>
   )
