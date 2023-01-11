@@ -1,10 +1,23 @@
 import React from 'react'
-import { Button , TextField } from '@mui/material'
-import { useContext } from 'react'
+import { Avatar, Button , TextField } from '@mui/material'
+import { useContext, useState } from 'react'
 import{ stepsContext } from './StepContext';
+import {AiOutlineCloudUpload} from 'react-icons/ai'
 
 export default function GeneralDataStep() {
   const { setStep, artData, setArtData} = useContext(stepsContext)
+
+  const [imgUrl, setImgUrl] = useState( null)
+  const [file, setFile] = useState(null)
+
+  const handleImageChange = (e) =>{
+    //console.log('file is', e.currentTarget.files[0])
+    const url = URL.createObjectURL(e.currentTarget.files[0])
+
+    setImgUrl(url)
+    setFile(e.currentTarget.files[0])
+}
+
   return (
     <div className='flex justify-center items-center flex-col'>
       <h3>Please fill the information</h3>
@@ -18,6 +31,25 @@ export default function GeneralDataStep() {
           onChange={e => setArtData({...artData, title: e.target.value })}
         />
       </div>
+      <form>
+        <label>
+          <div>
+          Upload Art-Work Image 
+            <AiOutlineCloudUpload className='cursor-pointer hover:text-red-200 text-[2rem] text-black ml-3'/> 
+            <input 
+              onChange={handleImageChange} 
+              type='file' 
+              className='hidden'
+            /> 
+          </div>
+        </label>
+        <Avatar 
+          src={imgUrl} 
+          alt="art work image"  
+          sx={{ width: 156, height: 156 }}
+        />
+      </form>
+      
       <div>
         <TextField 
           label="Year" 
