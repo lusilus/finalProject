@@ -16,32 +16,35 @@ import Cost from './components/Cost'
 import Edit from './pages/Edit'
 import Main from './components/addArtComponents/Main'
 import StepContext from './components/addArtComponents/StepContext';
+import { StyledEngineProvider } from '@mui/material';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ContextProvider>
-    <StepContext>
-      <BrowserRouter>
-        <Routes>
-            <Route element={<LoginLayout/>}>
-                <Route path='/' element={<App />}/>
-                <Route path='/login' element={<Login />}/>
-                <Route path='/register' element={<Register />}/>
-            </Route>
-            <Route element={<UserLayout/>}>
-                <Route path='/dashboard' element={<Dashboard />}/>
-                <Route path='/profile' element={<Profile />}/>
-                <Route path='/register' element={<Register />}/> 
-                <Route path='/explain' element={<Explain />}/> 
-                <Route path='/add' element={<AddNew2 />}/> 
-                <Route path='/cost' element={<Cost />}/>
-                <Route path='/edit/:id' element={<Edit />}/>
-                <Route path='/newCost' element={<Main />}/>
-            </Route>
-        </Routes>
-      </BrowserRouter>
-    </StepContext>
+    <StyledEngineProvider injectFirst>
+      <StepContext>
+        <BrowserRouter>
+          <Routes>
+              <Route element={<LoginLayout/>}>
+                  <Route path='/' element={<App />}/>
+                  <Route path='/login' element={<Login />}/>
+                  <Route path='/register' element={<Register />}/>
+              </Route>
+              <Route element={<UserLayout/>}>
+                  <Route path='/dashboard' element={<Dashboard />}/>
+                  <Route path='/profile' element={<Profile />}/>
+                  <Route path='/register' element={<Register />}/> 
+                  <Route path='/explain' element={<Explain />}/> 
+                  <Route path='/add' element={<AddNew2 />}/> 
+                  <Route path='/cost' element={<Cost />}/>
+                  <Route path='/edit/:id' element={<Edit />}/>
+                  <Route path='/newCost' element={<Main />}/>
+              </Route>
+          </Routes>
+        </BrowserRouter>
+      </StepContext>
+    </StyledEngineProvider>
   </ContextProvider>
  
 );

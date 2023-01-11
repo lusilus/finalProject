@@ -5,7 +5,15 @@ export const stepsContext = createContext()
  
 export default function StepContext({children}) {
   const [currentStep, setStep] = useState(1);
-  const [artData, setArtData] = useState({});
+  //const [artData, setArtData] = useState({});
+  const [artData, setArtData] = useState([{
+    title: "",
+    year:"",
+    catalogNumber: "",
+    collection: "",
+    //to add all the ..
+    hourlyRate:""
+  }]);
   const [finalData, setFinalData] = useState([]);
 
   function submitData(){

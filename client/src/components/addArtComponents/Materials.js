@@ -34,7 +34,7 @@ const handleRemove = (index) => {
          <div  className='flex justify-center items-center flex-col'>
             <h3>Materials</h3>
             
-            <div>
+            <div >
                 <TextField required label="Material Name" margin='normal' variant='outlined' color='secondary'/>
                 <TextField   required label="Material Cost" margin='normal' variant='outlined' color='secondary'/>
                 <TextField   required label="Material Portion" margin='normal' variant='outlined' color='secondary'/>
