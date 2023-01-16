@@ -5,6 +5,7 @@ import { useContext } from 'react'
 
 export default function Packaging() {
     const { setStep, artData, setArtData} = useContext(stepsContext)
+    console.log('art data  is', artData)
   return (
     <div>
         <h3>Packaging</h3>

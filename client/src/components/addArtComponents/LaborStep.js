@@ -5,6 +5,7 @@ import{ stepsContext } from './StepContext';
 
 export default function LaborStep() {
     const { setStep, artData, setArtData} = useContext(stepsContext)
+    console.log('art data  is', artData)
   return (
     <div  className='flex justify-center items-center flex-col'>
         <h3>Labor</h3>
@@ -15,7 +16,7 @@ export default function LaborStep() {
             margin='normal' 
             variant='outlined' 
             color='secondary'
-            value={artData['hourlyRate']} 
+            value={artData.hourlyRate} 
             onChange={e => setArtData({...artData, hourlyRate: e.target.value })}
           />
         </div>
@@ -25,8 +26,8 @@ export default function LaborStep() {
             margin='normal' 
             variant='outlined' 
             color='secondary'
-            value={artData['time']} 
-            onChange={e => setArtData({...artData, time: e.target.value })}
+            value={artData.timeProduction} 
+            onChange={e => setArtData({...artData, timeProduction: e.target.value })}
          />
         </div>
         <div >

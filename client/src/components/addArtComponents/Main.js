@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react'
 import { AppContext } from '../Context'
 import axios from 'axios'
-//import {AiOutlineCloudUpload} from 'react-icons/ai'
 import GeneralDataStep from './GeneralDataStep'
 import LaborStep from './LaborStep'
 import OverheadStep from './OverheadStep'
@@ -29,13 +28,7 @@ export default function Main() {
     const { currentStep, finalData} = useContext(stepsContext)
  
 
-    const handleImageChange = (e) =>{
-        //console.log('file is', e.currentTarget.files[0])
-        const url = URL.createObjectURL(e.currentTarget.files[0])
-
-        setImgUrl(url)
-        setFile(e.currentTarget.files[0])
-    }
+    
 
     const handleSave = async(e) =>{
         e.preventDefault()
@@ -75,7 +68,7 @@ export default function Main() {
             case 3:
                 return <OverheadStep/>
             case 4:
-                return <Materials/>
+                 return   <Materials/>
             case 5:
                 return <Packaging/>
             default: console.log('hello from steps')
@@ -105,6 +98,8 @@ export default function Main() {
         </div>
         {showStep(currentStep)}
 
+        <div>Overhead Cost:  </div>
+        <div>Labor Cost: </div>
         <div>Item Cost: </div>
         <div>Recommended Price: </div>
         when it will be ready, it need to render here the general info as well

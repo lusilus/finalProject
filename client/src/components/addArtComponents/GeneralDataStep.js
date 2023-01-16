@@ -1,11 +1,25 @@
 import React from 'react'
+//import axios from 'axios'
 import { Avatar, Button , TextField } from '@mui/material'
 import { useContext, useState } from 'react'
 import{ stepsContext } from './StepContext';
 import {AiOutlineCloudUpload} from 'react-icons/ai'
+//import { AppContext } from '../Context';
 
 export default function GeneralDataStep() {
   const { setStep, artData, setArtData} = useContext(stepsContext)
+  //const { state } = useContext(AppContext)
+  // const [data, setData] = useState({
+  //   title: "",
+  //   year: "",
+  //   cost: "", 
+  //   recommendedPrice: "", 
+  //   catalogNumber: "", 
+  //   laborCost: "",
+  //   OverheadCost: "",
+  //   collectionArt: "",
+  //   date: "",
+  //   })
 
   const [imgUrl, setImgUrl] = useState( null)
   const [file, setFile] = useState(null)
@@ -17,7 +31,7 @@ export default function GeneralDataStep() {
     setImgUrl(url)
     setFile(e.currentTarget.files[0])
 }
-
+ console.log('art data  is', artData)
   return (
     <div className='flex justify-center items-center flex-col'>
       <h3>Please fill the information</h3>
@@ -27,7 +41,7 @@ export default function GeneralDataStep() {
           margin='normal' 
           variant='outlined' 
           color='secondary'
-          value={artData['title']} 
+          value={artData.title} 
           onChange={e => setArtData({...artData, title: e.target.value })}
         />
       </div>
@@ -56,7 +70,7 @@ export default function GeneralDataStep() {
           margin='normal' 
           variant='outlined' 
           color='secondary'
-          value={artData['year']} 
+          value={artData.year} 
           onChange={e => setArtData({...artData, year: e.target.value })}
         />
       </div>
@@ -66,7 +80,7 @@ export default function GeneralDataStep() {
           margin='normal' 
           variant='outlined' 
           color='secondary'
-          value={artData['catalogNumber']} 
+          value={artData.catalogNumber} 
           onChange={e => setArtData({...artData, catalogNumber: e.target.value })}
        />
       </div>
@@ -76,7 +90,7 @@ export default function GeneralDataStep() {
           margin='normal' 
           variant='outlined' 
           color='secondary'
-          value={artData['collection']} 
+          value={artData.collection} 
           onChange={e => setArtData({...artData, collection: e.target.value })}
         />
       </div>

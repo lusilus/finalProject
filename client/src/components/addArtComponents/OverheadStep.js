@@ -1,8 +1,7 @@
 import React from 'react'
 import { Button , TextField } from '@mui/material'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import{ stepsContext } from './StepContext';
-import { useState } from 'react'
 
 export default function OverheadStep() {
     const { setStep, artData, setArtData} = useContext(stepsContext)
@@ -12,10 +11,20 @@ export default function OverheadStep() {
         overheadCost:""
     }])
 
-     const handleClick = ( ) => {
-             setMoreClicked(true)
-             setMoreOverHead([...moreOverHead, 
-                {overheadDescription: "",overheadCost:""}])
+    useEffect(()=>{
+    console.log('useEffect overhead',moreOverHead)
+  
+   },[moreOverHead])
+
+//    useEffect(()=>{
+//        handleClick()     
+//    },[])
+   
+     const handleClick = () => {
+      
+        setMoreClicked(true)
+        setMoreOverHead([...moreOverHead, 
+        {overheadDescription: "",overheadCost:""}])
     }
 
     const handleRemove = (index) => {
@@ -29,8 +38,12 @@ export default function OverheadStep() {
       const list = [...moreOverHead];
       list[index][name]= value;
       setMoreOverHead(list)
+      //update the global state with the more state:
+      
+      setArtData({...artData, moreOverHead})
     }
     console.log(' more overhead is', moreOverHead)
+    console.log('art data  is', artData)
   return (
     <div>
          <div  className='flex justify-center items-center flex-col'>
@@ -42,7 +55,7 @@ export default function OverheadStep() {
                 margin='normal' 
                 variant='outlined' 
                 color='secondary'
-                value={artData['rent']} 
+                value={artData.rent} 
                 onChange={e => setArtData({...artData, rent: e.target.value })}
             />
             </div>
@@ -52,7 +65,7 @@ export default function OverheadStep() {
                 margin='normal' 
                 variant='outlined' 
                 color='secondary'
-                value={artData['software']} 
+                value={artData.software} 
                 onChange={e => setArtData({...artData, software: e.target.value })}
             /> 
             </div>
@@ -63,7 +76,7 @@ export default function OverheadStep() {
                 margin='normal' 
                 variant='outlined' 
                 color='success'
-                value={artData['utilities']} 
+                value={artData.utilities} 
                 onChange={e => setArtData({...artData, utilities: e.target.value })}
             />
             </div>
@@ -74,7 +87,7 @@ export default function OverheadStep() {
                 margin='normal' 
                 variant='outlined' 
                 color='secondary'
-                value={artData['insurance']} 
+                value={artData.insurance} 
                 onChange={e => setArtData({...artData, insurance: e.target.value })}
             />
             </div>
@@ -86,8 +99,8 @@ export default function OverheadStep() {
                 margin='normal' 
                 variant='outlined' 
                 color='secondary'
-                value={artData['avgNum']} 
-                onChange={e => setArtData({...artData, avgNum: e.target.value })}
+                value={artData.avgNumProduction} 
+                onChange={e => setArtData({...artData, avgNumProduction: e.target.value })}
             />
             </div>
             <div>
@@ -118,6 +131,7 @@ export default function OverheadStep() {
                                     <Button variant="outlined" color="success" onClick={() => handleRemove(index)}>Remove</Button>
                                 </div>
                             )) 
+                            
                        :null
                     }
                     
