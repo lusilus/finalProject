@@ -5,7 +5,7 @@ import{ stepsContext } from './StepContext';
 
 export default function OverheadStep() {
     const { setStep, artData, setArtData} = useContext(stepsContext)
-    const [moreClicked, setMoreClicked] = useState(false)
+    const [moreClicked, setMoreClicked] = useState(artData.moreOverHead.length>0 ? true :  false)
     const [moreOverHead, setMoreOverHead] = useState([{
         overheadDescription: "",
         overheadCost:""
@@ -13,24 +13,30 @@ export default function OverheadStep() {
 
     useEffect(()=>{
     console.log('useEffect overhead',moreOverHead)
-  
+    setArtData({...artData, moreOverHead})
    },[moreOverHead])
 
-//    useEffect(()=>{
-//        handleClick()     
-//    },[])
+   useEffect(()=>{
+    if (artData.moreOverHead.length > 0 )
+    setMoreOverHead(artData.moreOverHead)
+   },[])
    
      const handleClick = () => {
-      
-        setMoreClicked(true)
-        setMoreOverHead([...moreOverHead, 
-        {overheadDescription: "",overheadCost:""}])
+      if (!moreClicked)
+        {setMoreClicked(true)}
+        else (
+                setMoreOverHead([...moreOverHead, 
+                {overheadDescription: "",overheadCost:""}])
+        )
+        
     }
 
     const handleRemove = (index) => {
         const list = [...moreOverHead]
         list.splice(index, 1);
         setMoreOverHead(list)
+
+        //if moreoverhead. length = 0 setmore clicke(false) 
     }
 
     const handleChange = (e, index) => {
@@ -38,12 +44,10 @@ export default function OverheadStep() {
       const list = [...moreOverHead];
       list[index][name]= value;
       setMoreOverHead(list)
-      //update the global state with the more state:
-      
-      setArtData({...artData, moreOverHead})
     }
     console.log(' more overhead is', moreOverHead)
     console.log('art data  is', artData)
+    //console.log(' more clicked is', moreClicked)
   return (
     <div>
          <div  className='flex justify-center items-center flex-col'>
@@ -128,18 +132,34 @@ export default function OverheadStep() {
                                         value={newInput.overheadCost} 
                                         onChange={(e) => handleChange(e,index) }
                                     /> 
-                                    <Button variant="outlined" color="success" onClick={() => handleRemove(index)}>Remove</Button>
+                                    <Button 
+                                        variant="outlined" 
+                                        color="success" 
+                                        onClick={() => handleRemove(index)}>Remove
+                                    </Button>
                                 </div>
                             )) 
                             
                        :null
                     }
                     
-                <Button variant="outlined" color="success" onClick={handleClick}>More</Button>
+                <Button 
+                    variant="outlined" 
+                    color="success" 
+                    onClick={handleClick}>More
+                </Button>
             </div>
             <div>
-            <Button variant="outlined" color="success"  onClick={()=> setStep(4)}>Next</Button>
-            <Button variant="outlined" color="error"  onClick={()=> setStep(2)}>Back</Button>
+            <Button 
+                variant="outlined" 
+                color="success"  
+                onClick={()=> setStep(4)}>Next
+            </Button>
+            <Button 
+                variant="outlined" 
+                color="error"  
+                onClick={()=> setStep(2)}>Back
+            </Button>
             </div>  
            
          </div>

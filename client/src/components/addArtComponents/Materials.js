@@ -5,7 +5,7 @@ import{ stepsContext } from './StepContext';
 
 export default function Materials() {
     const { setStep, artData, setArtData} = useContext(stepsContext)
-    const [moreClicked, setMoreClicked] = useState(false)
+    const [moreClicked, setMoreClicked] = useState(artData.moreMaterials.length>0 ? true :  false)
     const [moreMaterials, setMoreMaterials]= useState([{
         name: "",
         cost:"",
@@ -16,18 +16,24 @@ export default function Materials() {
    
 useEffect(()=>{
  console.log('useEffect materials', moreMaterials)
- console.log('art data  is', artData)
-},[artData, moreMaterials])
+ setArtData({...artData, moreMaterials})
+},[moreMaterials])
+
+useEffect(()=>{
+    if (artData.moreMaterials.length > 0 )
+    setMoreMaterials(artData.moreMaterials)
+   },[])
 
     const handleClick = ( ) => {
-        setMoreClicked(true)
-        setMoreMaterials([...moreMaterials, 
-            {
-                name: "",
-                cost:"",
-                portion:""
-        
-            }])
+        if (!moreClicked)
+       { setMoreClicked(true)}
+       else (setMoreMaterials([...moreMaterials, 
+        {
+            name: "",
+            cost:"",
+            portion:""
+    
+        }]))
 }
 
 const handleChange = (e, index) => {
@@ -35,8 +41,7 @@ const handleChange = (e, index) => {
     const list = [...moreMaterials];
     list[index][name]= value;
     setMoreMaterials(list)
-    //update the global state with the more state:
-    setArtData({...artData, moreMaterials})
+   
   }
    
 const handleRemove = (index) => {
@@ -45,7 +50,7 @@ const handleRemove = (index) => {
     setMoreMaterials(list)
 }
     console.log('art data  is', artData)
-  
+    console.log(' more materials is', moreMaterials)
   return (
     <div>
          <div  className='flex justify-center items-center flex-col'>
@@ -84,7 +89,7 @@ const handleRemove = (index) => {
             </div>
             {
                 moreClicked?
-                moreMaterials.map((newInput, index) => (
+                  moreMaterials.map((newInput, index) => (
                     <div key={index}>
                             <TextField 
                                 required 
@@ -116,7 +121,11 @@ const handleRemove = (index) => {
                                 value={newInput.portion} 
                                 onChange={(e) => handleChange(e,index) }
                             />
-                            <Button variant="outlined" color="success" onClick={() => handleRemove(index)}>Remove</Button>  
+                            <Button 
+                                variant="outlined" 
+                                color="success" 
+                                onClick={() => handleRemove(index)}>Remove
+                            </Button>  
                         
                     </div>
                 ))
@@ -124,15 +133,24 @@ const handleRemove = (index) => {
             }
             <div>
                 <Button 
-                variant="outlined" 
-                color="success" 
-                onClick={handleClick}>More</Button>
+                    variant="outlined" 
+                    color="success" 
+                    onClick={handleClick}>More
+                </Button>
             </div>
            
             <div>
            
-            <Button variant="outlined" color="success"  onClick={()=> setStep(5)}>Next</Button>
-            <Button variant="outlined" color="error"  onClick={()=> setStep(3)}>Back</Button>
+            <Button 
+                variant="outlined" 
+                color="success"  
+                onClick={()=> setStep(5)}>Next
+            </Button>
+            <Button 
+                variant="outlined" 
+                color="error"  
+                onClick={()=> setStep(3)}>Back
+            </Button>
             </div>  
            
          </div>
